@@ -7,17 +7,22 @@ function adicionar() {
         alert('Informe o nome do amigo!');
         return;
     }
+    if (amigos.includes(amigo.value)) {
+        alert('Nome já adicionado');
+        return;
+    }
 
     let lista = document.getElementById('lista-amigos');
 
     if (amigo.value.trim() === '') return;
 
-    amigos.push(amigo.value);
+    let nomeMaiusculo = amigo.value.toUpperCase();
+    amigos.push(nomeMaiusculo);
 
     if (lista.textContent === '') {
-        lista.textContent = amigo.value;
+        lista.textContent = nomeMaiusculo;
     } else {
-        lista.textContent += ', ' + amigo.value;
+        lista.textContent += ', ' + nomeMaiusculo;
     }
 
     amigo.value = '';
